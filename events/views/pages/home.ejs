@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+
+<div class="">
+    <div class="col s12">
+        <a href="/event/add" class="btn btn-success btn-lg">Add a new Record <%= sessionVal %></a>
+    </div>
+</div>
+<br>
+
+<div class="=">
+    <div class="col s12">
+        <% if(items.length > 0){ %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Category Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% items.forEach(function(item, index){ %> 
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= item.category_name %></td>
+                            <td>
+                                <a href="/event/edit/<%= item.category_id %>" class="btn btn-success">Edit</a> 
+                                
+                                <a href="/event/delete/<%= item.category_id %>" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p><strong>There are no records available</strong></p>
+        <% } %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
