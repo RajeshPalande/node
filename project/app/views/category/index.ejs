@@ -1,0 +1,55 @@
+<% include ../template/header %>
+<% include ../template/nav %>
+<div id="wrapper">
+  <% include ../template/sidebar %>
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/home">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Category</li>
+      </ol>
+
+
+      <!-- Page Content -->
+      <h1>Add Category</h1>
+      <div class="col s12">
+          <a href="/category/add" class="btn btn-success btn-lg">Add a new Record</a>
+      </div>
+      <hr>
+      <h1>Category List</h1>
+      <% if(categoryList.length > 0){ %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Category Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categoryList.forEach(function(item, index){ %> 
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= item.category_name %></td>
+                        <td>
+                            <a href="/category/edit/<%= item.category_id %>" class="btn btn-success">Edit</a> 
+                            
+                            <a href="/category/delete/<%= item.category_id %>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p><strong>There are no records available</strong></p>
+    <% } %>
+
+    </div>
+
+  </div>
+</div>

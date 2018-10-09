@@ -1,0 +1,50 @@
+<% include ../template/header %>
+<% include ../template/nav %>
+<div id="wrapper">
+  <% include ../template/sidebar %>
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/home">Home</a>
+        </li>
+        <li class="breadcrumb-item active">User</li>
+      </ol>
+
+      <!-- Page Content -->
+      <h1>User List</h1>
+      <% if(userList.length > 0){ %>
+        <table class="table" id="myTable">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>User Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% userList.forEach(function(item, index){ %> 
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= item.user_name %></td>
+                        <td>
+                            <a href="/category/edit/<%= item.user_id %>" class="btn btn-success">Edit</a> 
+                            
+                            <a href="/category/delete/<%= item.user_id %>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p><strong>There are no records available</strong></p>
+    <% } %>
+
+    </div>
+
+  </div>
+</div>
+<% include ../template/footer %>

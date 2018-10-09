@@ -3,9 +3,9 @@ var router = express.Router();
 var md5 = require('md5');
 
 router.get('/', function(req, res) {
-    // if (req.session && req.session.user_id) { // Check if session exists
-    //     res.redirect(baseURL+'home');
-    // } else {
+    if (req.session && req.session.user_id) { // Check if session exists
+        res.redirect(baseURL+'home');
+    } else {
         res.render('index',{
             pageTitle   : 'Login',
             loginData   : '',
@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
             pageID      : 'login',
             errors      : ''
         });
-    //}
+    }
 });
 
 router.post('/',function(req, res){
@@ -59,6 +59,11 @@ router.post('/',function(req, res){
             });
         });
     }
+});
+
+router.get('/logout',function(req,res){
+    req.session.destroy();
+    res.redirect(baseURL);
 });
 
 module.exports = router;

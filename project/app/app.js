@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var mysql = require('mysql');
+const mysql = require('mysql');
 var expressValidator = require('express-validator');
 var md5 = require('md5');
 
@@ -50,6 +50,9 @@ app.use(express.static('app/public'));
  */ 
 const index = require('./routes/index');
 const home = require('./routes/home');
+const category = require('./routes/category');
+const upload_file = require('./routes/upload_file');
+const user = require('./routes/user');
 
 /**
  * body-parser module is used to read HTTP POST data
@@ -78,12 +81,17 @@ app.use(session({
 	secret: 'keyboard cat',
 	resave: false,
 	saveUninitialized: true,
-	cookie: { maxAge: 60000 }
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000
 }))
 app.use(flash())
 
+
 app.use('/', index);
 app.use('/home', home);
+app.use('/category', category);
+app.use('/upload_file', upload_file);
+app.use('/user', user);
 
 
 var Server = app.listen(app.get('port'),function(){
