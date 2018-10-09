@@ -1,0 +1,13 @@
+ > npm init
+ > npm install express --save
+ > npm i mysql
+ > npm i express-myconnection
+ > npm i ejs --save
+ > npm i body-parser
+ > npm i nodemon
+ > npm i express-flash
+ > npm i cookie-parser
+ > npm i express-session
+ > npm i express-validator
+ > npm i md5
+ > npm install --save express-fileupload
