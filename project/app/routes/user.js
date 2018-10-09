@@ -19,4 +19,17 @@ router.get('/', function(req, res) {
     }
 });
 
+router.get('/add', function(req, res,next) {
+    if (req.session && req.session.user_id) { // Check if session exists
+        res.render('user/add_user',{
+            pageTitle   : 'Add User',
+            sessionVal  : req.session.user_name,
+            pageID      : 'user',
+            errors      : ''
+        });
+    } else {
+        res.redirect(baseURL);
+    }
+});
+
 module.exports = router;

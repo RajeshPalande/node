@@ -1,0 +1,45 @@
+<% include ../template/header %>
+<% include ../template/nav %>
+<div id="wrapper">
+  <% include ../template/sidebar %>
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/home">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Upload File</li>
+      </ol>
+
+      <!-- Page Content -->
+      <h1>Edit Upload File</h1>
+      <div class="card-body">
+        <form action='<%= baseURL %>upload_file/edit/<%= fileDetails[0].file_upload_id %>' method="post" encType="multipart/form-data">
+            <input type="hidden" id="file_upload_id" value="<%= fileDetails[0].file_upload_id %>" name="file_upload_id" class="form-control" />  
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="file" id="file_name" name="file_name" value="<%= fileDetails[0].file_name %>" class="form-control" />
+                  <label for="file_name">Upload File</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                    <div class="form-label-group">
+                        <a href="/<%= fileDetails[0].file_name %>" download="">Download</a>
+                    </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<% include ../template/footer %>

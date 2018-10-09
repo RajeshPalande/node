@@ -2,7 +2,7 @@
 <% include ../template/nav %>
 <div id="wrapper">
   <% include ../template/sidebar %>
-  <div id="content-wrapper">
+  <div id="content-wrapper" style="padding-bottom: 0px;">
 
     <div class="container-fluid">
 
@@ -15,6 +15,11 @@
       </ol>
 
       <!-- Page Content -->
+      <h1>Add User</h1>
+      <div class="col s12">
+          <a href="/user/add" class="btn btn-success btn-lg">Add User</a>
+      </div>
+      <hr>
       <h1>User List</h1>
       <% if(userList.length > 0){ %>
         <table class="table" id="myTable">
@@ -31,9 +36,11 @@
                         <td><%= index + 1 %></td>
                         <td><%= item.user_name %></td>
                         <td>
-                            <a href="/category/edit/<%= item.user_id %>" class="btn btn-success">Edit</a> 
+                            <a href="/user/view/user" class="btn btn-primary">View</a>
+
+                            <a href="/user/edit/<%= item.user_id %>" class="btn btn-success">Edit</a> 
                             
-                            <a href="/category/delete/<%= item.user_id %>" class="btn btn-danger">Delete</a>
+                            <a href="/user/delete/<%= item.user_id %>" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 <% }); %>
@@ -44,7 +51,7 @@
     <% } %>
 
     </div>
+    <% include ../template/footer %>
 
   </div>
 </div>
-<% include ../template/footer %>

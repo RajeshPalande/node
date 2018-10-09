@@ -1,0 +1,41 @@
+<% include ../template/header %>
+<% include ../template/nav %>
+<div id="wrapper">
+  <% include ../template/sidebar %>
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/home">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Category</li>
+      </ol>
+
+      <!-- Page Content -->
+      <h1>Edit Category</h1>
+      <div class="card-body">
+            
+        <form autocomplete="off" action='<%= baseURL %>category/edit/<%= item[0].category_id %>' method="post">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-label-group">
+                    <input type="hidden" id="category_id" name="category_id" value="<%= item[0].category_id %>">
+                    <input type="text" id="category_name" value="<%= item[0].category_name %>" name="category_name" class="form-control" placeholder="Category" autofocus="autofocus">
+                    <label for="category_name">Category</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<% include ../template/footer %>

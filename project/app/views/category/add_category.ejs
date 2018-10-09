@@ -1,7 +1,7 @@
-<%- include ../template/header %>
-<%- include ../template/nav %>
+<% include ../template/header %>
+<% include ../template/nav %>
 <div id="wrapper">
-  <%- include ../template/sidebar %>
+  <% include ../template/sidebar %>
   <div id="content-wrapper">
 
     <div class="container-fluid">
@@ -14,13 +14,33 @@
         <li class="breadcrumb-item active">Category</li>
       </ol>
 
-
       <!-- Page Content -->
       <h1>Add Category</h1>
-      
+      <div class="card-body">
+          <% if(errors){ %>
+              <ul>
+              <% for(var i = 0; i < errors.length; i++){ %>
+                  <li> <%= errors[i].msg %> </li>
+              <% } %>
+              </ul>
+          <% } %>
+        <form action='<%= baseURL %>category/add' method="post">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-label-group">
+                  <input type="text" id="category_name" name="category_name" class="form-control" placeholder="Category" autofocus="autofocus">
+                  <label for="category_name">Category</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+        </form>
+      </div>
 
     </div>
-    <%- include ../template/footer %>
 
   </div>
 </div>
+<% include ../template/footer %>

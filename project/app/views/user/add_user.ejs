@@ -1,0 +1,118 @@
+<% include ../template/header %>
+<% include ../template/nav %>
+<div id="wrapper">
+    <% include ../template/sidebar %>
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/home">Home</a>
+                </li>
+                <li class="breadcrumb-item active">User</li>
+            </ol>
+
+            <!-- Page Content -->
+            <h1>Add User</h1>
+            <div class="card-body">
+                <% if(errors){ %>
+                <ul>
+                    <% for(var i = 0; i < errors.length; i++){ %>
+                    <li>
+                        <%= errors[i].msg %>
+                    </li>
+                    <% } %>
+                </ul>
+                <% } %>
+                <form action='<%= baseURL %>user/add' method="post">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Category"
+                                        autofocus="autofocus">
+                                    <label for="user_name">User Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" id="mobile_number" name="mobile_number" class="form-control" placeholder="Category" autofocus="autofocus">
+                                    <label for="mobile_number">Mobile Number</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="email" id="email_id" name="email_id" class="form-control" placeholder="admin@test.com" autofocus="autofocus">
+                                    <label for="email_id">Email Id</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" id="dob" name="dob" class="form-control" placeholder="07-12-1988" autofocus="autofocus">
+                                    <label for="dob">DOB</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="file" id="avatar" name="avatar" class="form-control"/>
+                                    <label for="avatar">Avatar</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gender">Gender</label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="gender" name="gender" value="Male"> Male
+                                </label>
+                                &nbsp;&nbsp;
+                                <label class="radio-inline">
+                                    <input type="radio" id="gender" name="gender" value="Female"> Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" id="city" name="city" class="form-control" placeholder="Category" autofocus="autofocus">
+                                    <label for="city">City</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-label-group">
+                                    <input type="text" id="pincode" name="pincode" class="form-control" placeholder="Category" autofocus="autofocus">
+                                    <label for="pincode">Pincode</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-label-group">
+                                    <textarea id="address" name="address" class="form-control" placeholder="Address"></textarea>
+                                    <!-- <label for="address">Address</label> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<% include ../template/footer %>

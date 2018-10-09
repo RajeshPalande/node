@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 const mysql = require('mysql');
 var expressValidator = require('express-validator');
+const fileUpload = require('express-fileupload');
 var md5 = require('md5');
 
 /**
@@ -43,6 +44,7 @@ app.set('views', './app/views');
 app.set('view engine', 'ejs');
 
 app.use(express.static('app/public'));
+app.use(express.static('app/uploads'));
 
 /**
  * import routes/index.js
@@ -68,6 +70,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressValidator());
+app.use(fileUpload());
 
 app.set('port', process.env.PORT || 7000);
 
